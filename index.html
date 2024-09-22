@@ -34,15 +34,30 @@
     </section>
 
     <!-- About Me 區域 -->
-    <section id="about" class="about-section">
+    <section id="about" class="about-section"> 
         <div class="about-container">
+            <!-- 繞圓形旋轉文字 -->
+            <div class="text-circle-container">
+                <img src="./images/Logover.svg" alt="Logo" class="circle-logo" />
+                <svg viewBox="0 0 300 300" class="rotating-text-svg">
+                    <defs>
+                        <path id="circlePath" d="M 150, 150 m -100, 0 a 100,100 0 1,1 200,0 a 100,100 0 1,1 -200,0" />
+                    </defs>
+                    <text class="rotate-text" font-size="18" fill="black">
+                        <textPath href="#circlePath" startOffset="1.7%">
+                            SARAH'S DESIGN STUDIO SARAH'S DESIGN STUDIO DESIGN STUDIO
+                        </textPath>
+                    </text>
+                </svg>
+            </div>
+            
             <div class="about-me">
                 <img src="./images/About-2.jpg" alt="About me">
             </div>
+            
             <div class="about-content">
                 <h3>About me</h3>
-                    <p>Hello,我是Sarah,原先服務於金融業,
-                    因為對視覺與設計領域很有興趣,因此想轉職投入設計相關的工作。</p>
+                    <p>Hello,我是Sarah,原先服務於金融業,因為對視覺與設計領域很有興趣,因此想轉職投入設計相關的工作。</p>
                     <p>自學過平面設計軟體 AI、PS,能製作LOGO、平面文宣、海報、DM、網頁BANNER。</p>
                     <p>近期參加了前端網頁的課程,我運用了之前平面設計的基礎,進一步學習網站UI設計,與基本的程式語言基礎、網頁切版,期許未來能朝UI設計師的方向發展。</p>
                 <div class="skills">
@@ -54,13 +69,14 @@
             </div>
         </div>
     </section>
+    
 
     <!-- 作品集 區域 -->
     <section id="portfolio" class="portfolio-section">
         <h3>Portfolio</h3>
         <div class="portfolio-grid">
+            <a href="./cis.html">
             <div class="portfolio-item">
-                <a href="/web/cis.html">
                 <img src="./images/cis/signboard-2.jpg" alt="CIS設計">
                 <h4>CIS企業識別設計</h4></a>
             </div>
@@ -69,7 +85,7 @@
                 <h4>名片設計</h4>
             </div>
             <div class="portfolio-item">
-                <img src=".//images/cis/Magazine-Mockup.jpg" alt="視覺設計1">
+                <img src="./images/cis/Magazine.jpg" alt="視覺設計1">
                 <h4>視覺設計</h4>
             </div>
         </div>

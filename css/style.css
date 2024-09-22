@@ -15,6 +15,12 @@
     box-sizing: border-box;
 }
 
+html, body {
+    height: 100%; /* 確保父容器的高度也是 100% */
+    margin: 0; /* 移除 margin 確保沒有多餘的空白 */
+    padding: 0;
+}
+
 /* 重置字體 */
 body {
     font-family:
@@ -65,7 +71,8 @@ section {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100%;
+    /* height: 100%; */
+    /* height: 100vh; */
 }
 
 :root {
@@ -118,12 +125,12 @@ section {
 }
 
 
-html, body {
+/* html, body {
     height: 100%;
     margin: 0;
     display: flex;
     flex-direction: column;
-}
+} */
 /* 調整頁面內容不被導覽列遮擋 */
 body {
     padding-top: 50px;
@@ -241,7 +248,7 @@ body {
     font-family: "Cormorant+Garamond","sans-serif";
     display: inline-block;
     position: absolute;
-    top: 420px;
+    top: 450px;
     left: 65px;
     margin-top: 60px;
     /* padding: 10px 20px; */
@@ -345,6 +352,7 @@ p {
     align-items: center; /* 控制垂直方向的位置 */
     gap: 5px; /* 控制每個元素之間的距離 */
     padding: 30px 0px;
+    margin-top: 20px;
 }
 
 .skills h4 {
@@ -365,10 +373,14 @@ p {
 /* 作品集 區域 */
 .portfolio-section {
     text-align: center;
-    /* padding: 100px; */
-    padding: 4rem 0;
-    /* background-color: #333; */
     color: white;
+    height: 100vh; /* 使用100vh確保填滿整個視窗 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* 垂直置中 */
+    background-color: #6f6f6fdc; /* 背景顏色 */
+    padding: 0; /* 移除內邊距 */
+    box-sizing: border-box;
 }
 
 
@@ -376,15 +388,12 @@ p {
     display: flex;
     justify-content: center;
     gap: 15px; /* 控制圖片之間的間距 */
-    padding: 50px 100px; /* 減少兩邊的空白 */
+    padding: 10px 10px 10px 0; /* 減少兩邊的空白 */
+    margin-top: 100px;
 }
 
-/* .portfolio-item {
-    /* width: 30%; */
-    /* width: 800px; */ /* 統一設定圖片容器的寬度 */
-    /* text-align: center;
-} */
 .portfolio-item {
+    width: 100%; /* 統一設定圖片容器的寬度 */
     position: relative;
     text-align: center;
     margin: 10px;
@@ -431,7 +440,7 @@ p {
 }
 
 .portfolio-section h3 {
-    font-size: 50px;
+    /* font-size: 50px; */
     font-weight: 300;
 }
 
@@ -445,7 +454,7 @@ p {
     left: 50%;
     transform: translateX(-50%);
     z-index: 2; /* 確保文字在 bar 上方 */
-    font-size: 24px;
+    font-size: 28px;
     margin: 0; /* 移除 margin 讓文字更靠近 bar */
     letter-spacing: .08rem;
     background-color: rgba(255, 255, 255, 0.8); /* 半透明白色背景 */
@@ -474,19 +483,16 @@ footer {
     position: relative;
     bottom: 0;
     width: 100%; /* 讓<footer>佔滿視窗的寬度 */
-    height: 100vh;
     text-align: center;
     background-color: #000;
     color: white;
 }
 
 .footer-content {
-    /* width: 100%;
-    height: auto; */
     display: flex;
     justify-content: space-between; /* 讓內容分散在容器的兩側 */
     align-items: center; /* 垂直置中對齊 */
-    padding: 30px 80px 10px;
+    padding: 30px 80px 0px;
     /* max-width: 1200px;
     margin: 20px auto;
     margin-bottom: 60px;
@@ -510,6 +516,7 @@ footer {
 } */
 
 .footer-links a {
+    font-family: "Cormorant+Garamond","sans-serif";
     color: white;
     text-decoration: none;
     transition: color 0.3s ease;
@@ -521,11 +528,16 @@ footer {
 .social-icons{
     display: flex; /* 讓 icon 橫向排列 */
     gap: 30px; /* icon 之間的間距 */
+    padding-top: 50px;
+    width: auto; /* 改成自動調整寬度 */
+    height: 100%;
+    flex-wrap: nowrap; /* 防止圖標換行 */
 }
 
 .social-icons a img {
-    width: 24px; /* 設定 icon 的寬度 */
+    width: 30px; /* 設定 icon 的寬度 */
     height: auto;
+    flex-shrink: 0; /* 防止圖標縮小 */
     transition: opacity 0.3s ease;
 }
 
@@ -545,8 +557,10 @@ footer {
 
 /* 頁腳文字 */
 footer p {
-    padding: 0 0 1rem 3rem;
-    font-size: 0.8rem;
+    font-family: "Cormorant SC","sans-serif";
+    padding: 0 0 2rem 3rem;
+    margin: .3rem 2rem;
+    font-size: 1rem;
     text-align: justify;
 }
 
@@ -601,4 +615,57 @@ p {
 body.no-bg {
     background-image: none;
     background-color: #fff; /* 可選的背景顏色，可以根據需要修改 */
+}
+
+
+/* 繞圓形旋轉文字效果 */
+.about-container {
+    position: relative;
+    overflow: visible; /* 允許內部元素超出邊界 */
+}
+
+.about-me img {
+    position: relative;
+    max-width: 100%;
+    height: auto;
+    z-index: 0; /* 圖片的 z-index 設定為較低的值 */
+}
+
+.text-circle-container {
+    position: absolute;
+    bottom: -25px; /* 使旋轉文字超出圖片的下方 */
+    left: -140px;  /* 使旋轉文字超出圖片的左邊 */
+    width: 300px;
+    height: 300px;
+    z-index: 1; /* 提高堆疊層級，確保在圖片上方 */
+}
+
+.rotating-text-svg {
+    width: 100%;
+    height: 100%;
+}
+
+.circle-logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 75px;
+    height: 100px;
+}
+
+.rotate-text {
+    animation: rotate-text 10s linear infinite;
+    transform-origin: center;
+    letter-spacing: 1.5px;
+    font-family: 'Cormorant SC','Arial', sans-serif;
+}
+
+@keyframes rotate-text {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }
